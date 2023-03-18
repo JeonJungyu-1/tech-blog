@@ -16,8 +16,14 @@ export default function Seo({ title }: ISeoProps) {
     }
   `);
   return (
-    <title>
-      {title} | {data.site?.siteMetadata?.title}
-    </title>
+    <>
+      <title>
+        {title} | {data.site?.siteMetadata?.title}
+      </title>
+      <meta
+        name="google-site-verification"
+        content="XL6-ClgS_GEIhXSSUFjDfIfcFP2oFPYFapfyNH5cDC4"
+      />
+    </>
   );
 }
