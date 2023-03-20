@@ -8,7 +8,7 @@ export default function ProductDetail({
 }: PageProps<Queries.ProductQuery>) {
   const image = getImage(data.contentfulStickerPack?.preview?.gatsbyImageData!);
   return (
-    <Layout title={data.contentfulStickerPack?.name!}>
+    <Layout title={data.contentfulStickerPack?.name!} location={{pathname:""}}>
       <GatsbyImage image={image!} alt={data.contentfulStickerPack?.name!} />
       <h2>${data.contentfulStickerPack?.price}</h2>
     </Layout>

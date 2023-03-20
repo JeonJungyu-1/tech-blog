@@ -4,7 +4,7 @@ import Seo from "../components/Seo";
 
 export default function AboutUs() {
   return (
-    <Layout title="About Us">
+    <Layout title="About Us" location={{pathname:""}}>
       <p>We are the happies sticker store.</p>
     </Layout>
   );

@@ -6,6 +6,13 @@ const config: GatsbyConfig = {
     title: `chor\`s tech-blog`,
     siteUrl: `https://chor.netlify.app/`,
     description: "Welcome to my tech blog",
+    author: {
+      name: "chor",
+      summary: "Frontend Developer",
+    },
+    social: {
+      twitter: "bird",
+    },
   },
   // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
   // If you use VSCode you can also use the GraphQL plugin
@@ -21,12 +28,18 @@ const config: GatsbyConfig = {
       },
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: 'https://chor.netlify.app/',
-        sitemap: 'https://chor.netlify.app/sitemap-index.xml',
-        policy: [{ userAgent: '*', allow: '/' }]
-      }
+        host: "https://chor.netlify.app/",
+        sitemap: "https://chor.netlify.app/sitemap-index.xml",
+        policy: [{ userAgent: "*", allow: "/" }],
+      },
+    },
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        // Add any options here
+      },
     },
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-image`,
@@ -37,6 +50,26 @@ const config: GatsbyConfig = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/blog-posts`,
+      },
+    },
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 630,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          `gatsby-remark-prismjs`,
+        ],
       },
     },
   ],
